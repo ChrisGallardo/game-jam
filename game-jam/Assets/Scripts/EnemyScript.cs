@@ -10,10 +10,12 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D rb;
     public int damage;
     public int health;
-
+    private PlayerMovement player;
+    
     private void Awake() {
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerTransform = GameObject.Find("player").GetComponent<Transform>();
+        player = GameObject.Find("player").GetComponent<PlayerMovement>();
     }
 
     private void FixedUpdate() {
@@ -37,6 +39,7 @@ public class EnemyScript : MonoBehaviour
 
     private void Update() {
         if (health <= 0) {
+            player.souls += 1;
             Destroy(gameObject);
         }
     }
