@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask enemyLayer;
     private bool animHasBeenActivated = false;
     private Punch armR;
+    public GameObject fireball;
+    private GameObject newInstance;
+    public int fireBallCost;
 
     private void Awake() {
         rb = gameObject.GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
@@ -46,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
             animHasBeenActivated = true;
             anim.Play("Punch");
             armR.isPunching = true;
+        }
+        if (Input.GetMouseButtonDown(1)) {
+            playerLight -= fireBallCost;
+            newInstance = Instantiate(fireball, new Vector3(transform.position.x + 2, transform.position.y + 2.5f, transform.position.z), new Quaternion(0, 0, 0, 0));
         }
     }
 

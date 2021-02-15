@@ -570,6 +570,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 5015875758860561103, guid: 65b464435b3a4874ca0b64f19a4f12c7, type: 3}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 6169571043636255190, guid: a937d56a10e5db24f8ebc5155f7d7a89, type: 3}
+    - target: {fileID: 5015875758860561103, guid: 65b464435b3a4874ca0b64f19a4f12c7, type: 3}
+      propertyPath: fireBallCost
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b464435b3a4874ca0b64f19a4f12c7, type: 3}
 --- !u!1001 &8125149913962696752
