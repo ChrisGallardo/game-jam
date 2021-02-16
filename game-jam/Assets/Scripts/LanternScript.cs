@@ -30,16 +30,17 @@ public class LanternScript : MonoBehaviour
             if (player.fireflys > 0 && !beenToggled) {
                 erenderer.color = new Color(1f, 1f, 1f, 1f);
             }
-            if (Input.GetKeyDown(KeyCode.E) && !beenToggled && player.fireflys > 0) {
-                player.fireflys -= 1;
-                beenToggled = true;
-                newInstance = Instantiate(firefly, transform.position, new Quaternion(0, 0, 0, 0), transform);
-                newInstance.GetComponent<Light>().range = 4;
-                flyLight = newInstance.GetComponent<Light>();
-            }
-            if (Input.GetKeyDown(KeyCode.E) && beenToggled && player.souls > 0) {
-                player.souls -= 1;
-                player.fireflys += Random.Range(1, 6);
+            if (Input.GetKeyDown(KeyCode.E)) {
+                if (beenToggled && player.souls > 0) {
+                    player.souls -= 1;
+                    player.fireflys += Random.Range(1, 6);
+                } else if (player.fireflys > 0 && !beenToggled) {
+                    player.fireflys -= 1;
+                    beenToggled = true;
+                    newInstance = Instantiate(firefly, transform.position, new Quaternion(0, 0, 0, 0), transform);
+                    newInstance.GetComponent<Light>().range = 4;
+                    flyLight = newInstance.GetComponent<Light>();
+                }
             }
         } else {
             erenderer.color = new Color(1f, 1f, 1f, 0f);
