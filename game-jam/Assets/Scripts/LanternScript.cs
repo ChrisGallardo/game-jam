@@ -9,14 +9,14 @@ public class LanternScript : MonoBehaviour
     public int maxDistance;
     public string enemytags;
     private bool beenToggled = false;
-    private PlayerMovement player;
+    private PlayerScript player;
     public GameObject firefly;
     private GameObject newInstance;
     private Light flyLight;
     private GameObject withTag;
 
     private void Awake() {
-        player = GameObject.Find("player").GetComponent<PlayerMovement>();
+        player = GameObject.Find("player").GetComponent<PlayerScript>();
         playerTransform = GameObject.Find("player").GetComponent<Transform>();
         erenderer.color = new Color(1f, 1f, 1f, 0f);
     }

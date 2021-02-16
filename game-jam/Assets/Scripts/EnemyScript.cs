@@ -10,12 +10,12 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D rb;
     public int damage;
     public float health;
-    private PlayerMovement player;
+    private PlayerScript player;
     
     private void Awake() {
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerTransform = GameObject.Find("player").GetComponent<Transform>();
-        player = GameObject.Find("player").GetComponent<PlayerMovement>();
+        player = GameObject.Find("player").GetComponent<PlayerScript>();
     }
 
     private void FixedUpdate() {

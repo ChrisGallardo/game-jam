@@ -6,11 +6,11 @@ using UnityEngine;
 public class UIrenderer : MonoBehaviour
 {
     private Text text;
-    private PlayerMovement playerscript;
+    private PlayerScript playerscript;
 
     private void Awake() {
         text = GetComponent<Text>();
-        playerscript = GameObject.Find("player").GetComponent(typeof(PlayerMovement)) as PlayerMovement;
+        playerscript = GameObject.Find("player").GetComponent(typeof(PlayerScript)) as PlayerScript;
     }
 
     private void Update() {
