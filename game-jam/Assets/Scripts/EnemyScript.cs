@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public int damage;
     public float health;
     private PlayerScript player;
+    [SerializeField] private Slider healthSlider;
     
     private void Awake() {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -38,9 +40,14 @@ public class EnemyScript : MonoBehaviour
     }   
 
     private void Update() {
-        if (health <= 0) {
-            player.souls += 1;
-            Destroy(gameObject);
-        }
+        UpdateHealthSlider();
+        
+        if (!(health <= 0)) return;
+        player.souls += 1;
+        Destroy(gameObject);
+    }
+
+    private void UpdateHealthSlider() {
+        healthSlider.value = health;
     }
 }
