@@ -6,10 +6,10 @@ public class EnemyScript : MonoBehaviour
 {
     private Transform playerTransform;
     public int maxDistanceToAgress;
-    public int speed;
+    public float speed;
     private Rigidbody2D rb;
     public int damage;
-    public int health;
+    public float health;
     private PlayerMovement player;
     
     private void Awake() {

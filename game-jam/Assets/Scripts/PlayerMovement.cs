@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject fireball;
     private GameObject newInstance;
     public int fireBallCost;
+    public GameObject fireflyspawn;
 
     private void Awake() {
         rb = gameObject.GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
@@ -42,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
+        if (playerLight <= 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         if (playerLight > maxPlayerLight) {
             playerLight = maxPlayerLight;
         }
@@ -53,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(1)) {
             playerLight -= fireBallCost;
             newInstance = Instantiate(fireball, new Vector3(transform.position.x + 2, transform.position.y + 2.5f, transform.position.z), new Quaternion(0, 0, 0, 0));
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && fireflys > 0) {
+            fireflys -= 1;
+            Instantiate(fireflyspawn);
         }
     }
 
